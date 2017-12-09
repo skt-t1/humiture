@@ -779,6 +779,11 @@
               <FileType>1</FileType>
               <FilePath>.\user_config\am_lpc82x_hwconfig\am_lpc82x_hwconfig_wwdt.c</FilePath>
             </File>
+            <File>
+              <FileName>am_temp_hwconfig_lm75.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_config\am_lpc82x_hwconfig\am_temp_hwconfig_lm75.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -798,6 +803,11 @@
               <FileName>am_temp_lm75.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_code\am_temp_lm75.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_temp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_code\demo_temp.c</FilePath>
             </File>
           </Files>
         </Group>

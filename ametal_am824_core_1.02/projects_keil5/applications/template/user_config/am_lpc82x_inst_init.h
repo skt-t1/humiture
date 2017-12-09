@@ -337,6 +337,8 @@ am_wdt_handle_t am_lpc82x_wwdt_inst_init (void);
  */
 void am_lpc82x_wwdt_inst_deinit (am_wdt_handle_t handle);
 
+void am_lpc82x_temp_lm75_init (void);
+
 /**
  * @}
  */

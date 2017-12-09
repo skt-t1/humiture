@@ -13,38 +13,24 @@
 
 /**
  * \file
- * \brief LPC82x 模板工程
+ * \brief 温度传感器LM75驱动
  *
  * \internal
  * \par Modification history
- * - 1.00 15-07-13  win, first implementation.
+ * - 1.00 17-04-10  skt, first implementation.
  * \endinternal
- */ 
+ */
 
 #include "ametal.h"
 #include "am_vdebug.h"
-#include "am_led.h"
-#include "am_delay.h"
-#include "am_lpc82x_inst_init.h"
+#include "am_temp.h"
 
-extern void demo_lm75_temp_entry (void);
-
-/**
- * \brief AMetal 应用程序入口
- */
-int am_main (void)
+void demo_lm75_temp_entry (void)
 {
+    int value;
     
-    AM_DBG_INFO("Start up successful!\r\n");
-    
-    demo_lm75_temp_entry();
-
-    while (1) {
-        am_led_on(0);
-        am_mdelay(100);
-        am_led_off(0);
-        am_mdelay(100);
-    }
+    am_temp_read(0, &value);
+    AM_DBG_INFO("current tempture is %d\n", value);
 }
-
+ 
 /* end of file */

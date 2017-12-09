@@ -58,6 +58,8 @@ int main (void)
     /* ∞Âº∂≥ı ºªØ */
     am_board_init();
     
+    am_lpc82x_temp_lm75_init();
+    
     return am_main();
 }
 

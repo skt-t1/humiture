@@ -29,11 +29,12 @@ extern "C" {
 #endif
     
 #include "am_temp.h"
+#include "am_i2c.h"
     
 /** 
  * \brief 设备信息结构体
  */
-typedef struct am_temp_lm75_devinfo {
+struct am_temp_lm75_devinfo {
     
     /** \brief 服务信息 */
     struct am_temp_servinfo info;
@@ -42,34 +43,24 @@ typedef struct am_temp_lm75_devinfo {
     int addr;
     
     /** \brief 平台初始化函数 */
-    void (*pfn_plfm_init) (void);
+    void (*pfn_plfm_init) (am_i2c_handle_t *p_retval);
     
-    /** \brief 平台解初始化函数 */
-    void (*pfn_plfm_deinit) (void);
-    
-} am_temp_lm75_devinfo_t;
+};
     
 /**
  * \brief 设备结构体
  */
-typedef struct am_temp_lm75_dev {
+struct am_temp_lm75_dev {
     
-    /** \brief 温度传感器服务结构体指针 */
-    struct am_temp_service *p_serv;
+    am_i2c_device_t i2c;
     
-    
-} am_temp_lm75_dev_t;
+};
     
 /**
  * \brief 设备初始化函数
  */
-void am_temp_lm75_init (am_temp_lm75_dev_t           *p_serv,
-                        const am_temp_lm75_devinfo_t *p_devinfo);
-
-/**
- * \brief 设备去初始化函数
- */
-void am_temp_lm75_deinit (am_temp_lm75_dev_t *p_serv);
+void am_temp_lm75_init (struct am_temp_lm75_dev           *p_dev,
+                        const struct am_temp_lm75_devinfo *p_devinfo);
     
 #ifdef __cplusplus
 }

@@ -13,38 +13,43 @@
 
 /**
  * \file
- * \brief LPC82x 模板工程
+ * \brief 温度传感器LM75配置文件
  *
  * \internal
  * \par Modification history
- * - 1.00 15-07-13  win, first implementation.
+ * - 1.00 17-04-10  skt, first implementation.
  * \endinternal
- */ 
-
-#include "ametal.h"
-#include "am_vdebug.h"
-#include "am_led.h"
-#include "am_delay.h"
-#include "am_lpc82x_inst_init.h"
-
-extern void demo_lm75_temp_entry (void);
-
-/**
- * \brief AMetal 应用程序入口
  */
-int am_main (void)
-{
-    
-    AM_DBG_INFO("Start up successful!\r\n");
-    
-    demo_lm75_temp_entry();
 
-    while (1) {
-        am_led_on(0);
-        am_mdelay(100);
-        am_led_off(0);
-        am_mdelay(100);
+#include "am_lpc82x_inst_init.h"
+#include "am_temp_lm75.h"
+
+/* 平台初始化 */
+am_local
+void __temp_lm75_plfm_init (am_i2c_handle_t *p_retval)
+{
+    if (p_retval == NULL) {
+        return ;
     }
+    *p_retval = am_lpc82x_i2c0_inst_init();
 }
 
+/* LM75设备信息结构体 */
+am_local am_const struct am_temp_lm75_devinfo __g_lm75_0_devinfo = {
+    {
+        0,
+    },
+    0x48,
+    __temp_lm75_plfm_init
+};
+
+/* LM75设备结构体 */
+am_local struct am_temp_lm75_dev __g_lm75_0_dev;
+
+/* LM75初始化 */
+void am_lpc82x_temp_lm75_init (void)
+{
+    am_temp_lm75_init(&__g_lm75_0_dev, &__g_lm75_0_devinfo);
+}
+ 
 /* end of file */

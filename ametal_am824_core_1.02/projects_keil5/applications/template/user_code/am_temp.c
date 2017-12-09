@@ -30,18 +30,12 @@ static struct am_temp_service *__gp_temp_serv = NULL;
 /** \brief 添加服务节点 */
 int am_temp_dev_add (struct am_temp_service *p_serv)
 {
-    struct am_temp_service *p_temp = __gp_temp_serv;
-    
     if (p_serv == NULL) {
         return -AM_EINVAL;
     }
     
-    while (p_temp != NULL) {
-        p_temp = p_temp->p_next;
-    }
-    
-    p_serv->p_next = p_temp;
-    p_temp         = p_serv;
+    p_serv->p_next = __gp_temp_serv;
+    __gp_temp_serv = p_serv;
     
     return AM_OK;
 }

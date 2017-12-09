@@ -78,10 +78,10 @@ struct am_temp_service {
     struct am_temp_service *p_next;
     
     /** \brief 服务相关信息 */
-    struct am_temp_servinfo *p_info;
+    const struct am_temp_servinfo *p_info;
     
     /** \brief 服务相关函数 */
-    struct am_temp_servopts *p_opts;
+    const struct am_temp_servopts *p_opts;
     
     /** \brief 调用服务相关函数时，传入的第一个参数 */
     void *p_cookie;
@@ -129,6 +129,19 @@ int am_temp_alarm_disable (int id);
 
 /**
  * \brief 设置报警信号的回调函数
+ *
+ * \code
+ * void __temp_alarm_cb (void *p_arg)
+ * {
+ *     // 添加处理操作
+ * }
+ *
+ * // 设置报警信号处理函数 
+ * am_temp_signal(0, __temp_alarm_cb, (void *)0);
+ * 
+ * // 报警温度70°C
+ * am_temp_alarm_enable (0, 70);
+ * \endcode
  *
  * \param[in] id        : 设备ID号
  * \param[in] pfn_alarm : 报警回调函数
