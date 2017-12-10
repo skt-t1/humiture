@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>AM_VDEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\ametal\CMSIS\Include;..\..\..\ametal\common\include;.\user_code;.\user_config;..\..\..\ametal\lpc82x\drivers\include;..\..\..\ametal\lpc82x\hw\include;..\..\..\ametal\lpc82x;.\board</IncludePath>
+              <IncludePath>..\..\..\ametal\CMSIS\Include;..\..\..\ametal\common\include;.\user_code;.\user_config;..\..\..\ametal\lpc82x\drivers\include;..\..\..\ametal\lpc82x\hw\include;..\..\..\ametal\lpc82x;.\board;.\temp\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -647,6 +647,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>temp</GroupName>
+          <Files>
+            <File>
+              <FileName>am_temp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\temp\source\am_temp.c</FilePath>
+            </File>
+            <File>
+              <FileName>am_temp_lm75.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\temp\source\am_temp_lm75.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>user_config</GroupName>
           <Files>
             <File>
@@ -795,19 +810,9 @@
               <FilePath>.\user_code\main.c</FilePath>
             </File>
             <File>
-              <FileName>am_temp.c</FileName>
+              <FileName>demo_temp_lm75.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user_code\am_temp.c</FilePath>
-            </File>
-            <File>
-              <FileName>am_temp_lm75.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_code\am_temp_lm75.c</FilePath>
-            </File>
-            <File>
-              <FileName>demo_temp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_code\demo_temp.c</FilePath>
+              <FilePath>.\temp\demo_temp_lm75.c</FilePath>
             </File>
           </Files>
         </Group>
