@@ -54,14 +54,14 @@ int __lm75_temp_read (void *p_cookie, int *p_value)
 am_local 
 int __lm75_temp_alarm_enable (void *p_cookie, int temp)
 {
-    return 0;
+    return -AM_ENOTSUP;
 }
 
 /******************************************************************************/
 am_local 
 int __lm75_temp_alarm_disable (void *p_cookie)
 {
-    return 0;
+    return -AM_ENOTSUP;
 }
 
 /******************************************************************************/
@@ -70,7 +70,7 @@ int __lm75_temp_signal (void         *p_cookie,
                         am_pfnvoid_t  pfn_alarm, 
                         void         *p_arg)
 {
-    return 0;    
+    return -AM_ENOTSUP;    
 }
 
 /******************************************************************************/
