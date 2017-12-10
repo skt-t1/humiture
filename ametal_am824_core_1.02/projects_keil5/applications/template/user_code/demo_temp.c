@@ -27,10 +27,12 @@
 
 void demo_lm75_temp_entry (void)
 {
+    am_temp_info_t info;
     int value;
     
+    am_temp_info_get(0, &info);
     am_temp_read(0, &value);
-    AM_DBG_INFO("current tempture is %d\n", value);
+    AM_DBG_INFO("current tempture is %.2f\n", value / info.multiple);
 }
  
 /* end of file */

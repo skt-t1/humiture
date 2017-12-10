@@ -32,10 +32,11 @@ extern int am_temp_dev_add (struct am_temp_service *p_serv);
 am_local 
 int __lm75_temp_info_get (void *p_cookie, am_temp_info_t *p_info)
 {
-    struct am_temp_lm75_dev *p_dev = p_cookie;
+    //struct am_temp_lm75_dev *p_dev = p_cookie;
     
     p_info->temp_min = -55;
     p_info->temp_max = 125;
+    p_info->multiple = 8;    
     
     return 0;
 }
@@ -46,11 +47,7 @@ int __lm75_temp_read (void *p_cookie, int *p_value)
 {            
     struct am_temp_lm75_dev *p_dev = p_cookie;
     
-    uint8_t            temp_value[2];
-    
-    am_i2c_read(&p_dev->i2c, 0x00, temp_value, 2);
-    
-    return 0;
+    return am_i2c_read(&p_dev->i2c, 0x00, (uint8_t *)p_value, 2);
 }
 
 /******************************************************************************/
