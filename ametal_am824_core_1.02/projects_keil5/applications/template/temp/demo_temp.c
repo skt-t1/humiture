@@ -25,7 +25,7 @@
 #include "am_vdebug.h"
 #include "am_temp.h"
 
-void demo_lm75_temp_entry (void)
+void demo_temp_entry (void)
 {
     am_temp_info_t info;
     int value;

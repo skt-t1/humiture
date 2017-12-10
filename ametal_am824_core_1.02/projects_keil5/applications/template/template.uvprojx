@@ -810,9 +810,9 @@
               <FilePath>.\user_code\main.c</FilePath>
             </File>
             <File>
-              <FileName>demo_temp_lm75.c</FileName>
+              <FileName>demo_temp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\temp\demo_temp_lm75.c</FilePath>
+              <FilePath>.\temp\demo_temp.c</FilePath>
             </File>
           </Files>
         </Group>

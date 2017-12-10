@@ -27,7 +27,7 @@
 #include "am_delay.h"
 #include "am_lpc82x_inst_init.h"
 
-extern void demo_lm75_temp_entry (void);
+extern void demo_temp_entry (void);
 
 /**
  * \brief AMetal 应用程序入口
@@ -37,7 +37,7 @@ int am_main (void)
     
     AM_DBG_INFO("Start up successful!\r\n");
     
-    demo_lm75_temp_entry();
+    demo_temp_entry();
 
     while (1) {
         am_led_on(0);
